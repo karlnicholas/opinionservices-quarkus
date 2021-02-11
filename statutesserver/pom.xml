@@ -8,10 +8,7 @@
 	<version>2.0.0-SNAPSHOT</version>
   </parent>
   <artifactId>statutesserver</artifactId>
-  <packaging>war</packaging>
-  <properties>
-	<failOnMissingWebXml>false</failOnMissingWebXml>
-  </properties>
+  <packaging>jar</packaging>
   <dependencies>
   	<dependency>
  		<groupId>com.github.karlnicholas.opinionservices</groupId>
