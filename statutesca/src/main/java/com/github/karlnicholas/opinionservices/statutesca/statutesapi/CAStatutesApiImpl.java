@@ -1,9 +1,15 @@
 package com.github.karlnicholas.opinionservices.statutesca.statutesapi;
 
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.karlnicholas.opinionservices.statutes.SectionNumber;
 import com.github.karlnicholas.opinionservices.statutes.StatutesBaseClass;
 import com.github.karlnicholas.opinionservices.statutes.StatutesLeaf;
@@ -230,7 +236,7 @@ public class CAStatutesApiImpl implements IStatutesApi {
 	}
 	@Override
 	public boolean loadStatutes() {
-/*		
+		ObjectMapper m = new ObjectMapper();
 		statutes = new ArrayList<StatutesRoot>();
 		try {
 			String resourcePath = System.getenv("californiastatutesloc");
@@ -242,16 +248,15 @@ public class CAStatutesApiImpl implements IStatutesApi {
 			for ( String file: files ) {
 				Path filePath = Paths.get(resourcePath + "/" + file );
 				logger.info("Processing " + filePath );
-				ObjectInputStream ois = new ObjectInputStream( Files.newInputStream(filePath) );
-				StatutesRoot c = (StatutesRoot)ois.readObject();
+//				ObjectInputStream ois = new ObjectInputStream( Files.newInputStream(filePath) );
+				StatutesRoot c = m.readValue(Files.newInputStream(filePath) , StatutesRoot.class);
 				c.rebuildParentReferences(null);
 				statutes.add( c );
 			}
-		} catch (ClassNotFoundException | IOException e) {
+		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
 		Collections.sort( statutes );
-*/
 		return true;
 	}		
 
