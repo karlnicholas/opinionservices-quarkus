@@ -1,10 +1,5 @@
 package com.github.karlnicholas.opinionservices.statutesca.statutesapi;
 
-import java.io.*;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.*;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
@@ -235,6 +230,7 @@ public class CAStatutesApiImpl implements IStatutesApi {
 	}
 	@Override
 	public boolean loadStatutes() {
+/*		
 		statutes = new ArrayList<StatutesRoot>();
 		try {
 			String resourcePath = System.getenv("californiastatutesloc");
@@ -255,6 +251,7 @@ public class CAStatutesApiImpl implements IStatutesApi {
 			throw new RuntimeException(e);
 		}
 		Collections.sort( statutes );
+*/
 		return true;
 	}		
 

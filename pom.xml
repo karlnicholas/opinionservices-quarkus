@@ -25,7 +25,6 @@
 		<module>Statutes</module>
 		<module>StatutesServer</module>
 		<module>StatutesCa</module>
-		<module>StatutesServiceCa</module>
 	</modules>
 	<dependencyManagement>
 		<dependencies>
@@ -54,7 +53,7 @@
 			</dependency>
 			<dependency>
 				<groupId>com.github.karlnicholas.opinionservices</groupId>
-				<artifactId>statutes-server</artifactId>
+				<artifactId>statutesserver</artifactId>
 				<version>${project.version}</version>
 				<type>jar</type>
 				<scope>compile</scope>

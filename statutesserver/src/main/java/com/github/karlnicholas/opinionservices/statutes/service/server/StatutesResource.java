@@ -18,7 +18,7 @@ import com.github.karlnicholas.opinionservices.statutes.StatutesTitles;
 import com.github.karlnicholas.opinionservices.statutes.api.IStatutesApi;
 import com.github.karlnicholas.opinionservices.statutes.service.dto.StatuteKey;
 
-@Path("/hello")
+@Path("/")
 public class StatutesResource {
 	private final IStatutesApi iStatutesApi;
 
@@ -27,26 +27,30 @@ public class StatutesResource {
 	}
 
 	@GET
+	@Path(com.github.karlnicholas.opinionservices.statutes.service.StatutesService.STATUTES)
     @Produces(MediaType.APPLICATION_JSON)
 	public List<StatutesRoot> getStatutesRoots() {
 		return iStatutesApi.getStatutes();
 	}
 
 	@GET
+	@Path(com.github.karlnicholas.opinionservices.statutes.service.StatutesService.STATUTESTITLES)
     @Produces(MediaType.APPLICATION_JSON)
 	public StatutesTitles[] getStatutesTitles() {
 		return iStatutesApi.getStatutesTitles();
 	}
 
 	@GET
+	@Path(com.github.karlnicholas.opinionservices.statutes.service.StatutesService.STATUTEHIERARCHY)
     @Produces(MediaType.APPLICATION_JSON)
 	public StatutesRoot getStatuteHierarchy(@QueryParam("fullFacet") String fullFacet) {
 		return iStatutesApi.getStatutesHierarchy(fullFacet);
 	}
 
 	@POST
+	@Path(com.github.karlnicholas.opinionservices.statutes.service.StatutesService.STATUTESANDHIERARCHIES)
 	@Consumes(MediaType.APPLICATION_JSON)
-    @Produces()
+	@Produces(MediaType.APPLICATION_JSON)
 	public List<StatutesRoot> getStatutesAndHierarchies(List<StatuteKey> statutesKeys) {
 			// This is a section
 			List<StatutesRoot> rv = statutesKeys.stream().map(statuteKey -> {
